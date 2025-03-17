@@ -13,7 +13,16 @@ jobs:
           name: "Echo OK"
           command: "echo ok"
 
+  gr:
+    docker:
+      - image: cimg/base:current
+    steps:
+      - checkout
+
 workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+      - gr:
+          requires:
+            - say-hello
