@@ -9,9 +9,6 @@ jobs:
       - run:
           name: "Pod Spec Update"
           command: "bash spec_update.sh"
-      - run:
-          name: "Echo OK"
-          command: "echo OK"
 
 workflows:
   say-hello-workflow:
