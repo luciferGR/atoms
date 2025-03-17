@@ -19,10 +19,22 @@ jobs:
     steps:
       - checkout
 
+  gr2:
+    docker:
+      - image: cimg/base:current
+    steps:
+      - checkout
+      - run:
+          name: "Echo Gr2"
+          command: "echo Gr2"
+
 workflows:
   say-hello-workflow:
     jobs:
       - say-hello
       - gr:
+          requires:
+            - say-hello
+      - gr2:
           requires:
             - say-hello
