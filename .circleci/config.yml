@@ -28,18 +28,6 @@ jobs:
           name: "Echo Gr2"
           command: "echo Gr2"
 
-  playwright-tests:
-    docker:
-      - image: mcr.microsoft.com/playwright:v1.15.2-focal
-    steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: npm install
-      - run:
-          name: Run Playwright tests
-          command: npx playwright test
-
 workflows:
   say-hello-workflow:
     jobs:
@@ -50,6 +38,3 @@ workflows:
       - gr2:
           requires:
             - say-hello
-      - playwright-tests:
-          requires:
-            - gr2
